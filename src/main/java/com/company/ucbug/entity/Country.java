@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 import java.util.UUID;
 
 @JmixEntity
-@Table(name = "BASE_COUNTRY")
+@Table(name = "COUNTRY")
 @Entity
 public class Country {
     @JmixGeneratedValue
@@ -22,28 +22,16 @@ public class Country {
     @Id
     private UUID id;
 
-    @Size(min = 2, max = 2)
     @CaseConversion
-    @Column(name = "ISO_CODE", nullable = false, unique = true, length = 2)
+    @Size(min = 2, max = 2)
+    @Column(name = "CODE", nullable = false, unique = true, length = 2)
     @NotNull
-    private String iso_code;
+    private String code;
 
+    @NotNull
     @InstanceName
     @Column(name = "NAME", nullable = false, unique = true)
-    @NotNull
     private String name;
-
-    public UUID getId() {
-        return id;
-    }
-
-    public String getIso_code() {
-        return iso_code;
-    }
-
-    public void setIso_code(String iso_code) {
-        this.iso_code = iso_code;
-    }
 
     public String getName() {
         return name;
@@ -51,5 +39,21 @@ public class Country {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 }

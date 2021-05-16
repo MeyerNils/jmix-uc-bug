@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 import java.util.UUID;
 
 @JmixEntity
-@Table(name = "BASE_CURRENCY")
+@Table(name = "CURRENCY")
 @Entity
 public class Currency {
     @JmixGeneratedValue
@@ -33,8 +33,12 @@ public class Currency {
     @NotNull
     private String name;
 
-    public UUID getId() {
-        return id;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getCode() {
@@ -45,12 +49,11 @@ public class Currency {
         this.code = code;
     }
 
-    public String getName() {
-        return name;
+    public UUID getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setId(UUID id) {
+        this.id = id;
     }
-
 }
